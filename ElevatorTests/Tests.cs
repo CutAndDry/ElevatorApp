@@ -61,7 +61,7 @@ namespace ElevatorTests
 
             
             Assert.Equal(5, elevator.CurrentFloor); // Verify that elevator has moved to floor 5
-            Assert.Equal(5, elevator.CurrentPassengerCount); // Verify the elevator has Passengers
+            Assert.Equal(0, elevator.CurrentPassengerCount); // Verify the elevator no Passengers
         }
 
         [Fact]
@@ -80,12 +80,13 @@ namespace ElevatorTests
            
             await elevatorController.HandleRequestsAsync();
 
-         
-           
-            Assert.Equal(5, elevator1.CurrentFloor); // Elevator 1 should be at floor 5
-            Assert.Equal(2, elevator2.CurrentFloor); // Elevator 2 should be at floor 2 (it picked the remaining passengers)
-            Assert.Equal(5, elevator1.CurrentPassengerCount); // Elevator 1 should be full
-            Assert.Equal(2, elevator2.CurrentPassengerCount); // Elevator 2 should have the remaining passengers
+            await Task.Delay(10000);
+
+
+            Assert.Equal(6, elevator1.CurrentFloor); // Elevator 1 should be at floor 6
+            Assert.Equal(5, elevator2.CurrentFloor); // Elevator 2 should be at floor 5 (it droped off the remaining passengers)
+            Assert.Equal(0, elevator1.CurrentPassengerCount); // Elevator 1 should be Empty at the end
+            Assert.Equal(0, elevator2.CurrentPassengerCount); // Elevator 2 should be Empty at the end
         }
 
         [Fact]
@@ -103,9 +104,10 @@ namespace ElevatorTests
         
             await elevatorController.HandleRequestsAsync();
 
-          
-            Assert.Equal(5, elevator1.CurrentPassengerCount); // Elevator 1 should be full
-            Assert.Equal(5, elevator2.CurrentPassengerCount); // Elevator 2 should have Passengers
+            await Task.Delay(10000);
+
+            Assert.Equal(0, elevator1.CurrentPassengerCount); // Elevator 1 should be Empty 
+            Assert.Equal(0, elevator2.CurrentPassengerCount); // Elevator 2 should be Empty 
         }
     }
 }

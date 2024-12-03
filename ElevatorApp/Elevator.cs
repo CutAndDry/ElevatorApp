@@ -32,7 +32,8 @@ namespace ElevatorApp
                 Console.WriteLine($"Elevator {Id} is on floor {CurrentFloor} moving to floor {floor} with {CurrentPassengerCount} passengers.");
 
                 // Simulate time taken to move 
-                await Task.Delay(Math.Abs(CurrentFloor - floor) * 10);
+                int timedelay = 10;
+                await Task.Delay(Math.Abs(CurrentFloor - floor) * timedelay);
                 CurrentFloor = floor;
 
 
