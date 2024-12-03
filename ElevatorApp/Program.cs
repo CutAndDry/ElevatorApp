@@ -1,2 +1,26 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+
+
+using ElevatorApp;
+
+
+
+        ElevatorController elevatorSystem = new ElevatorController();
+
+        // Add elevator
+        elevatorSystem.AddElevator(new Elevator(1, 5));
+        elevatorSystem.RequestElevator(1, 5, 7);
+
+        foreach (var elevator in elevatorSystem.elevators)
+        {
+            Console.WriteLine($"elevator ID {elevator.Id}");
+        }
+        Console.WriteLine();
+
+        foreach (var floor in elevatorSystem.floorRequests)
+        {
+
+         Console.WriteLine($"Request ID  {floor.Key}:");
+        }
+
+    
