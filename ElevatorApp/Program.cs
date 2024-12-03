@@ -121,7 +121,7 @@ async Task testScenarioAsync()
     elevatorSystem.AddElevator(new Elevator(2, 5));
 
     elevatorSystem.RequestElevator(1, 5, 7);
-    elevatorSystem.RequestElevator(2, 3, 8);
+    elevatorSystem.RequestElevator(5, 2, 8);
 
     elevatorSystem.HandleRequestsAsync();
 

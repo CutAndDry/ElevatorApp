@@ -92,8 +92,10 @@ namespace ElevatorApp
                 }
             }
         }
+
         public Elevator GetClosestElevator(int floor)
         {
+
             Elevator closestElevator = null;
             int closestDistance = int.MaxValue;
 
